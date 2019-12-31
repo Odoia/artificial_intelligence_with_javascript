@@ -1,8 +1,24 @@
 module.exports = class linearRegression {
   
   train(config={}) {
+    this._config = {};
     if(config.input) this.X = config.input; else this.X = [0]
     if(config.output) this.Y = config.output; else this.Y = [0]
+    this._config.input = this.X; 
+    this._config.output = this.Y;
+  }
+
+  saveModel(path='./model.json') {
+    const fs = require('fs');
+    fs.writeFileSync(path, JSON.stringify(this._config));
+  }
+
+  loadModel(path='./model.json') {
+    const fs = require('fs');
+    const data = fs.readFileSync(path, 'utf8' );
+    const json = JSON.parse(data);
+    this.X = json.input;
+    this.Y = json.output;
   }
 
   product(x=[], y=[]) {
