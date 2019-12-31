@@ -23,7 +23,7 @@ function feedForward(inputs=[], target=0, epochs=1) {
     }
 
     let sum = summation(multiply);
-    let output = parseFloat(Math.tanh(sum)).toFixed(4);
+    let output = parseFloat(tanh(sum)).toFixed(4);
 
     let error = parseFloat(Math.abs(target - output)).toFixed(4);
     for(let j=0; j<inputs; j++) {
@@ -35,6 +35,8 @@ function feedForward(inputs=[], target=0, epochs=1) {
   }
 }
 
+function tanh(n=0) { return Math.sinh(n) / Math.cosh(n); } // core of Math.tanh
+function sigmoid(n=0) { return 1 / (1 + Math.pow(Math.E, -n)); }
 // feedForward([0], 0.1, 100)
 
 feedForward([0, 0], 0.1, 1000);
