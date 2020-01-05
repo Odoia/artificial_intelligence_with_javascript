@@ -56,7 +56,6 @@ module.exports = class linearRegression {
     return ((result4 * predictive_input) + result5).toFixed(0);
   }
 
-
   predict(p=[]) {
     let regressions = [];
     for(let i=0; i<p.length; i++) {

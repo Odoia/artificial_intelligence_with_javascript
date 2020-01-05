@@ -66,7 +66,6 @@ module.exports = class multivariateRegression {
     return ((result4 * predictive_input) + result5).toFixed(0);
   }
 
-
   predict(p=[]) {
     const tempX = p;
     let concatX = [];
